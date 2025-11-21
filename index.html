@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fintrack - Your Stock Market Partner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #1a237e;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .nav-links a:hover {
+            color: #64b5f6;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background-color: #4caf50;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 60px 50px;
+            background-color: #f5f5f5;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #1a237e;
+        }
+
+        .features-grid {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .feature-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .feature-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #1a237e;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        /* Stock Info Section */
+        .stock-info {
+            padding: 60px 50px;
+            background-image: url('https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=1200');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .stock-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(26, 35, 126, 0.9);
+        }
+
+        .stock-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stock-content h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .stock-boxes {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .stock-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 8px;
+            width: 220px;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stock-box h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .stock-box p {
+            font-size: 28px;
+            font-weight: bold;
+            color: #4caf50;
+        }
+
+        /* About Section */
+        .about {
+            padding: 60px 50px;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-image {
+            flex: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #1a237e;
+        }
+
+        .about-text p {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a237e;
+            color: white;
+            padding: 40px 50px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .footer-section {
+            margin: 20px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 15px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Fintrack</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="https://www.tradingview.com/" target="_blank">Markets</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Start Your Investment Journey</h1>
+            <p>Trade stocks, mutual funds, and build your wealth with confidence</p>
+            <a href="#" class="btn">Get Started Today</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2 class="section-title">Why Choose Fintrack?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400" alt="Real-time Trading">
+                <h3>Real-Time Trading</h3>
+                <p>Access live market data and execute trades instantly with our advanced platform</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=400" alt="Portfolio Management">
+                <h3>Portfolio Management</h3>
+                <p>Track and manage your investments with comprehensive portfolio analysis tools</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=400" alt="Expert Research">
+                <h3>Expert Research</h3>
+                <p>Get detailed market analysis and insights from financial experts</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stock Info Section -->
+    <section class="stock-info" id="markets">
+        <div class="stock-content">
+            <h2>Today's Market Overview</h2>
+            <div class="stock-boxes">
+                <div class="stock-box">
+                    <h4>NIFTY 50</h4>
+                    <p>19,745.30</p>
+                    <span>+156.80 (0.80%)</span>
+                </div>
+                <div class="stock-box">
+                    <h4>SENSEX</h4>
+                    <p>65,982.50</p>
+                    <span>+528.20 (0.81%)</span>
+                </div>
+                <div class="stock-box">
+                    <h4>BANK NIFTY</h4>
+                    <p>44,235.60</p>
+                    <span>+342.15 (0.78%)</span>
+                </div>
+                <div class="stock-box">
+                    <h4>GOLD</h4>
+                    <p>62,450.00</p>
+                    <span>+125.00 (0.20%)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600" alt="About Us">
+        </div>
+        <div class="about-text">
+            <h2>About Fintrack</h2>
+            <p>We are India's leading investment platform, helping millions of investors achieve their financial goals.</p>
+            <p>With over 10 years of experience in the financial markets, we provide cutting-edge technology and expert guidance to make investing simple and accessible for everyone.</p>
+            <p>Our mission is to empower every Indian to invest with confidence and build long-term wealth.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Products</h3>
+                <ul>
+                    <li><a href="#">Stocks</a></li>
+                    <li><a href="#">Mutual Funds</a></li>
+                    <li><a href="#">Fixed Deposits</a></li>
+                    <li><a href="#">Insurance</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Fintrack. All rights reserved. | Designed for SNW Capstone Project</p>
+        </div>
+    </footer>
+</body>
+</html>
