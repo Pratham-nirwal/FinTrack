@@ -17,7 +17,7 @@
             color: #333;
         }
 
-        /* Navigation */
+        
         nav {
             background-color: #1a237e;
             padding: 15px 50px;
@@ -48,7 +48,7 @@
             color: #64b5f6;
         }
 
-        /* Hero Section */
+        
         .hero {
             background-image: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200');
             background-size: cover;
@@ -97,13 +97,15 @@
             border-radius: 5px;
             font-size: 18px;
             display: inline-block;
+            cursor: pointer;
+            border: none;
         }
 
         .btn:hover {
             background-color: #45a049;
         }
 
-        /* Features Section */
+        
         .features {
             padding: 60px 50px;
             background-color: #f5f5f5;
@@ -151,7 +153,7 @@
             font-size: 16px;
         }
 
-        /* Stock Info Section */
+        
         .stock-info {
             padding: 60px 50px;
             background-image: url('https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=1200');
@@ -212,7 +214,7 @@
             color: #4caf50;
         }
 
-        /* About Section */
+        
         .about {
             padding: 60px 50px;
             display: flex;
@@ -247,7 +249,7 @@
             color: #666;
         }
 
-        /* Footer */
+       
         footer {
             background-color: #1a237e;
             color: white;
@@ -290,7 +292,7 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+   
     <nav>
         <div class="logo">Fintrack</div>
         <ul class="nav-links">
@@ -302,16 +304,16 @@
         </ul>
     </nav>
 
-    <!-- Hero Section -->
+    
     <section class="hero" id="home">
         <div class="hero-content">
             <h1>Start Your Investment Journey</h1>
             <p>Trade stocks, mutual funds, and build your wealth with confidence</p>
-            <a href="#" class="btn">Get Started Today</a>
+            <button class="btn" onclick="showWelcome()">Get Started Today</button>
         </div>
     </section>
 
-    <!-- Features Section -->
+    
     <section class="features" id="features">
         <h2 class="section-title">Why Choose Fintrack?</h2>
         <div class="features-grid">
@@ -333,36 +335,36 @@
         </div>
     </section>
 
-    <!-- Stock Info Section -->
+    
     <section class="stock-info" id="markets">
         <div class="stock-content">
             <h2>Today's Market Overview</h2>
             <div class="stock-boxes">
                 <div class="stock-box">
                     <h4>NIFTY 50</h4>
-                    <p>19,745.30</p>
+                    <p id="nifty">19,745.30</p>
                     <span>+156.80 (0.80%)</span>
                 </div>
                 <div class="stock-box">
                     <h4>SENSEX</h4>
-                    <p>65,982.50</p>
+                    <p id="sensex">65,982.50</p>
                     <span>+528.20 (0.81%)</span>
                 </div>
                 <div class="stock-box">
                     <h4>BANK NIFTY</h4>
-                    <p>44,235.60</p>
+                    <p id="banknifty">44,235.60</p>
                     <span>+342.15 (0.78%)</span>
                 </div>
                 <div class="stock-box">
                     <h4>GOLD</h4>
-                    <p>62,450.00</p>
+                    <p id="gold">62,450.00</p>
                     <span>+125.00 (0.20%)</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    
     <section class="about" id="about">
         <div class="about-image">
             <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600" alt="About Us">
@@ -375,7 +377,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    
     <footer id="contact">
         <div class="footer-content">
             <div class="footer-section">
@@ -408,7 +410,11 @@
         </div>
         <div class="footer-bottom">
             <p>&copy; 2024 Fintrack. All rights reserved. | Designed for SNW Capstone Project</p>
+            <p id="datetime"></p>
         </div>
     </footer>
+
+ 
+    <script src="script.js"></script>
 </body>
 </html>
